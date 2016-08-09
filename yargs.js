@@ -737,6 +737,15 @@ function Yargs (processArgs, cwd, parentRequire) {
       return
     }
 
+    return self.validate()
+  }
+
+  self.validate = function () {
+    const parsed = self.parsed
+    if (!parsed) return
+    const argv = parsed.argv
+    var aliases = parsed.aliases
+
     var skipValidation = false
 
     // Handle 'help' and 'version' options
